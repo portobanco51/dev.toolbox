@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { fetchData, options } from './utils/fetchData'
+import { useState, useEffect } from 'react'
+import { webs } from './utils/webUrls'
+const App = () => {
 
-function App() {
+  const [metaData, setMetaData] = useState({})
+
+  useEffect(() => {
+    const metaTagData = () => {
+      const openGraphUrl = 'https://apic-opengraph.p.rapidapi.com/?url=';
+      webs.map(async (e) => {
+        const data = await fetchData(`${openGraphUrl}${e}`, options);
+        setMetaData(data)
+      })
+    }
+    metaTagData()
+    console.log(metaData)
+  }, [webs])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <p>{ }</p>
+    </>
+  )
 }
 
-export default App;
+export default App
