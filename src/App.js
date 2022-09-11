@@ -11,21 +11,21 @@ const App = () => {
       const openGraphUrl = 'https://og-link-preview.p.rapidapi.com/?url=';
       webs.forEach(async (e) => {
         const data = await fetchData(`${openGraphUrl}${e}`, options);
-        setMetaData(prevData => { return [...prevData, { data }] })
+        setMetaData((prev) => [...prev, { title: data.title, url: data.domain, img: data.cover, description: data.description }])
       })
     }
     metaTagData()
-    console.log(metaData)
   }, [])
+  console.log(metaData)
 
   return (
     <>
       {metaData.map((i, index) => (
         <div key={index}>
-          <a href={i.data.domain} target='_blank' rel="noreferrer">
-            <img src={i.data.cover} alt={i.data.title} style={{ width: '19rem' }} />
-            <li>{i.data.title}</li>
-            <li>{i.data.description}</li>
+          <a href={i.url} target='_blank' rel="noreferrer">
+            <img src={i.img} alt={i.title} style={{ width: '19rem' }} />
+            <li>{i.title}</li>
+            <li>{i.description}</li>
           </a>
         </div>
       ))}
