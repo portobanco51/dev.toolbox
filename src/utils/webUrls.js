@@ -4,4 +4,5 @@ export const webs = [
     'https://app.haikei.app',
     'https://htmlcolorcodes.com/es/',
     'https://www.ilovepdf.com',
+    'https://cssgenerator.org',
 ]
