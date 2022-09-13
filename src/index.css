@@ -49,10 +49,32 @@ code {
     width: 100%;
 }
 
+.span-list {
+    position: relative;
+    color: #ea024f;
+}
+
+.span-list::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    top: 50px;
+    background-color: #ea024f;
+    z-index: -1000;
+    transition: all 0.2s cubic-bezier(0.69, 0.2, 0.59, 1.19);
+    transform-origin: left;
+}
+
+.span-list:hover::after {
+    width: 100%;
+}
+
 .card {
-    backdrop-filter: blur(8px) saturate(180%);
-    background-color: rgba(17, 47, 80, 0.351);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    backdrop-filter: blur(10px) saturate(180%);
+    background-color: rgba(93, 94, 95, 0.451);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
 .card:hover {
@@ -62,6 +84,7 @@ code {
 
 .card-img {
     max-width: 20rem;
+    max-height: 10em;
     margin-block: 1rem;
     background-color: #fff;
     border-radius: 0.8rem;

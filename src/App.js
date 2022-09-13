@@ -1,20 +1,26 @@
-import { fetchData, options } from './utils/fetchData'
+import { fetchData, designOptions, codeOptions } from './utils/fetchData'
 import { useState, useEffect } from 'react'
-import { webs } from './utils/webUrls'
+import { designWebs, codeWebs } from './utils/webUrls'
 import WebList from './components/WebList'
 import Header from './components/Header'
 
 const App = () => {
 
-  const [metaData, setMetaData] = useState([])
+  const [designMetaData, setDesignMetaData] = useState([])
+  const [codeMetaData, setCodeMetaData] = useState([])
 
   useEffect(() => {
     const metaTagData = () => {
-      setMetaData([])
+      setDesignMetaData([])
+      setCodeMetaData([])
       const openGraphUrl = 'https://og-link-preview.p.rapidapi.com/?url=';
-      webs.forEach(async (e) => {
-        const data = await fetchData(`${openGraphUrl}${e}`, options);
-        setMetaData((prev) => [...prev, { title: data.title, url: data.domain, img: data.cover, description: data.description }])
+      designWebs.forEach(async (e) => {
+        const data = await fetchData(`${openGraphUrl}${e}`, designOptions);
+        setDesignMetaData((prev) => [...prev, { title: data.title, url: data.domain, img: data.cover, description: data.description }])
+      })
+      codeWebs.forEach(async (e) => {
+        const data = await fetchData(`${openGraphUrl}${e}`, codeOptions);
+        setCodeMetaData((prev) => [...prev, { title: data.title, url: data.domain, img: data.cover, description: data.description }])
       })
     }
     metaTagData()
@@ -23,7 +29,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <WebList data={metaData} />
+      <WebList designData={designMetaData} codeData={codeMetaData} />
     </>
   )
 }
