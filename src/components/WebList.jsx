@@ -5,8 +5,8 @@ const WebList = ({ designData, codeData }) => {
     return (
         <>
             <Box maxWidth='80vw' mx='auto' display='flex' flexDirection='column' gap='2rem'>
-                <List id='designtools' data={designData} name='Design' icon={'🎨'} />
-                <List id='codetools' data={codeData} name='Code' icon={'💻'} />
+                <List id='designtools' data={designData} name='Design' />
+                <List id='codetools' data={codeData} name='Code' />
             </Box>
         </>
     )
