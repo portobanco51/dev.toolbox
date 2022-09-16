@@ -71,6 +71,28 @@ code {
     width: 100%;
 }
 
+.span-foot {
+    position: relative;
+    color: #ea024f;
+}
+
+.span-foot::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    top: 40px;
+    background-color: #ea024f;
+    z-index: -1000;
+    transition: all 0.2s cubic-bezier(0.69, 0.2, 0.59, 1.19);
+    transform-origin: left;
+}
+
+.span-foot:hover::after {
+    width: 100%;
+}
+
 .card {
     backdrop-filter: blur(10px) saturate(180%);
     background-color: rgba(93, 94, 95, 0.451);

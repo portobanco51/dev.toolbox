@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { designWebs, codeWebs } from './utils/webUrls'
 import WebList from './components/WebList'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
     <>
       <Header />
       <WebList designData={designMetaData} codeData={codeMetaData} />
+      <Footer />
     </>
   )
 }
