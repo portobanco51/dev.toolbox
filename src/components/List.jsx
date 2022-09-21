@@ -11,7 +11,7 @@ const List = ({ data, name, id }) => {
                 : <Box mx='auto' maxWidth='80vw' flexWrap='wrap' display='flex' alignItems='center' alignContent='flex-start' justifyContent='center' gap='2rem' className="container-weblist">
                     {
                         data?.map((e, i) => (
-                            <WebCard key={i} data={data[i]} />
+                            <WebCard key={i} data={e} />
                         ))
                     }
                 </Box >}
