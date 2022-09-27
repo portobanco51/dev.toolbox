@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "dev.toolBob",
+    "short_name": "dev.toolBob",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
